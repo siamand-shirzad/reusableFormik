@@ -1,10 +1,13 @@
 import { Form, Formik } from 'formik';
-import FormikControl from './FormikControl';
+import FormikControl from './formikElements/FormikControl';
 
 const RegisterForm = () => {
 	const initialValues = {
 		name: '',
-		lastname: ''
+		lastname: '',
+		email:'',
+		password:'',
+		bio:''
 	};
 	const onSubmit = (values, submitprops) => {
 		console.log(values);
@@ -16,12 +19,15 @@ const RegisterForm = () => {
 	return (
 		<Formik initialValues={initialValues} onSubmit={onSubmit} enableReinitialize>
 			{formik => {
-				console.log(formik);
+
 				return (
-					< >
+					<>
 						<Form className="w-full min-h-64 flex flex-col justify-center items-center space-y-4">
-							<FormikControl control="input" name="name" type="text" label="نام" />
+							<FormikControl control="input" name="name" type="text" label="نام" {...formik}/>
 							<FormikControl control="input" name="lastname" type="text" label="نام خانوادگی" />
+							<FormikControl control="input" name="email" type="email" label="ایمیل" />
+							<FormikControl control="input" name="password" type="password" label="رمز عبور" />
+							<FormikControl control="textarea" name="bio"  label="بیوگرافی" />
 							<div className="mt-6">
 								<button
 									type="button"

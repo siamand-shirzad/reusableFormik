@@ -11,7 +11,7 @@ const DarkModeToggle = () => {
   return (
     <span className="cursor-pointer transform dark:rotate-90 transition-all duration-300">
       <FiMoon className="dark:hidden size-app_24" onClick={setDark} />
-      <FiSun className="hidden dark:inline size-app_24" onClick={setLight} />
+      <FiSun className="hidden dark:inline dark:text-white size-app_24" onClick={setLight} />
     </span>
     // <div>
     //   <label className="relative inline-flex items-center cursor-pointer">
