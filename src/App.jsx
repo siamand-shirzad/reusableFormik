@@ -1,10 +1,12 @@
-import RegisterForm from './RegisterForm';
+import Header from './components/ui/Header';
+import MainContent from './components/ui/MainContent';
 
 const App = () => {
 	return (
-    <div>
-      <RegisterForm/>
-    </div>
+		<div className='w-full flex flex-col h-screen'>
+			<Header/>
+      <MainContent/>
+		</div>
 	);
 };
 
