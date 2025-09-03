@@ -1,7 +1,19 @@
-import { FastField, ErrorMessage } from 'formik';
+import { FastField, ErrorMessage, useFormikContext } from 'formik';
+import { useEffect, useState } from 'react';
 
 const Input = (props) => {
 	const { name, type, label } =props
+	
+	const { values } = useFormikContext();
+	
+  const [hasValue, setHasValue] = useState(false);
+	
+  useEffect(() => {
+		setHasValue(!!values[name]);
+		console.log(values[name]);
+  }, [values[name]]);
+
+console.log(hasValue);
 
 	return (
 		<div className="relative w-3/4">
@@ -14,10 +26,11 @@ const Input = (props) => {
 
 			<label
 				htmlFor={name}
-				className="absolute right-4 top-1/2 -translate-y-1/2 bg-white dark:bg-[#1e2939] px-2 text-base font-light text-gray-500 transition-all duration-300
-        peer-focus:top-0 peer-focus:right-3 peer-focus:text-sm peer-focus:text-[#4070f4]
-        peer-placeholder-shown:top-1/2 peer-placeholder-shown:right-4 peer-placeholder-shown:text-base peer-placeholder-shown:text-gray-500
-				">
+				className={`absolute right-4 top-1/2 -translate-y-1/2 bg-white dark:bg-[#1e2939] px-2 text-base font-light text-gray-500 transition-all duration-300
+        peer-focus:top-0 peer-focus:right-3 peer-focus:text-sm peer-focus:text-[#4070f4] ${
+					hasValue? ' !top-0 !right-3 !text-sm ! !text-[#4070f4] ' : ''
+				}
+`}>
 				{label}
 			</label>
 
