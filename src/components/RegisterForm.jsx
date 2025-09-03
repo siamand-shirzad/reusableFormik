@@ -16,6 +16,12 @@ const RegisterForm = () => {
 
 		submitprops.resetForm();
 	};
+	const educations = [
+		{id:1 , value: 'دیپلم' },
+		{id:2 , value: 'لیسانس' },
+		{id:3 , value: 'فوق لیسانس' },
+		{id:4 , value: 'دکترا' },
+	]
 	return (
 		<Formik initialValues={initialValues} onSubmit={onSubmit} enableReinitialize>
 			{formik => {
@@ -28,6 +34,7 @@ const RegisterForm = () => {
 							<FormikControl control="input" name="email" type="email" label="ایمیل" />
 							<FormikControl control="input" name="password" type="password" label="رمز عبور" />
 							<FormikControl control="textarea" name="bio"  label="بیوگرافی" />
+							<FormikControl control="select" name="education"  label="تحصیلات" educations={educations} />
 							<div className="mt-6">
 								<button
 									type="button"
