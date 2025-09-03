@@ -7,7 +7,9 @@ const RegisterForm = () => {
 		lastname: '',
 		email:'',
 		password:'',
-		bio:''
+		bio:'',
+		education: 1,
+		gender: 1,
 	};
 	const onSubmit = (values, submitprops) => {
 		console.log(values);
@@ -22,6 +24,10 @@ const RegisterForm = () => {
 		{id:3 , value: 'فوق لیسانس' },
 		{id:4 , value: 'دکترا' },
 	]
+	const gender = [
+		{id:1 , value: "مرد"},   
+		{id:2 , value: "زن"}
+	]
 	return (
 		<Formik initialValues={initialValues} onSubmit={onSubmit} enableReinitialize>
 			{formik => {
@@ -35,6 +41,7 @@ const RegisterForm = () => {
 							<FormikControl control="input" name="password" type="password" label="رمز عبور" />
 							<FormikControl control="textarea" name="bio"  label="بیوگرافی" />
 							<FormikControl control="select" name="education"  label="تحصیلات" educations={educations} />
+							<FormikControl control="radio" name="gender"  label="جنسیت" option={gender} />
 							<div className="mt-6">
 								<button
 									type="button"

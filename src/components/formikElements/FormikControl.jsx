@@ -1,4 +1,5 @@
 import Input from './Input';
+import Radio from './Radio';
 import Select from './Select';
 import Textarea from './Textarea';
 
@@ -12,6 +13,8 @@ const FormikControl = props => {
 			return <Textarea {...rest} />;
 		case 'select':
 			return <Select {...rest} />;
+		case 'radio':
+			return <Radio {...rest} />;
 
 		default:
 			break;

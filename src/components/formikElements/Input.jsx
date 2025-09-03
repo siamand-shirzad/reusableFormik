@@ -1,7 +1,6 @@
 import { FastField, ErrorMessage } from 'formik';
 
 const Input = (props) => {
-	console.log(props);
 	const { name, type, label } =props
 
 	return (
