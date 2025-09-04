@@ -13,7 +13,6 @@ const Input = (props) => {
 		console.log(values[name]);
   }, [values[name]]);
 
-console.log(hasValue);
 
 	return (
 		<div className="relative w-3/4">
