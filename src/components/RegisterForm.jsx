@@ -1,5 +1,6 @@
 import { Form, Formik } from 'formik';
 import FormikControl from './formikElements/FormikControl';
+import { myFormValidation } from '../validations/registerFormValidation';
 
 const RegisterForm = () => {
 	const initialValues = {
@@ -36,12 +37,12 @@ const RegisterForm = () => {
 		{id:4 , value: "react"},
 	]
 	return (
-		<Formik initialValues={initialValues} onSubmit={onSubmit} enableReinitialize>
+		<Formik initialValues={initialValues} onSubmit={onSubmit} enableReinitialize validationSchema={myFormValidation}>
 			{formik => {
 
 				return (
 					<>
-						<Form className="w-full min-h-64 flex flex-col justify-center items-center space-y-4">
+						<Form className="w-full min-h-64 flex flex-col justify-center items-center space-y-3">
 							<FormikControl control="input" name="name" type="text" label="نام" {...formik}/>
 							<FormikControl control="input" name="lastname" type="text" label="نام خانوادگی" />
 							<FormikControl control="input" name="email" type="email" label="ایمیل" />

@@ -9,18 +9,31 @@ const Radio = props => {
 			<label className="text-gray-500 pe-6 " htmlFor={name}>
 				{label}
 			</label>
-			<FastField  name={name} id={name}>
-				{({ field }) => {
-					return option.map(i => (
-						<Fragment key={i.id}>
-							<input type="radio" {...field} value={i.id} id={i.id} checked={field.value == i.id} />
-							<label htmlFor={i.id} className=" px-2 pe-5  font-light text-gray-500  ">
-								{i.value}
-							</label>
-						</Fragment>
-					));
-				}}
-			</FastField>
+			<FastField name={name} id={name}>
+        {({ field, form }) => (
+          <div className="flex space-x-6">
+            {option.map(opt => (
+              <label
+                key={opt.id}
+                className="flex items-center space-x-1 cursor-pointer"
+              >
+                <input
+                  type="radio"
+                  {...field}
+                  value={opt.id}
+                  checked={field.value == opt.id}
+                  onChange={() => form.setFieldValue(name, opt.id)}
+                  className="text-indigo-600 h-5 w-5 "
+                />
+                <span className="text-gray-700">
+                  {opt.value}
+                </span>
+              </label>
+            ))}
+          </div>
+        )}
+      </FastField>
+
 
 			<ErrorMessage name={name} component="div" className="text-red-500 text-sm mt-1 text-right" />
 		</div>
