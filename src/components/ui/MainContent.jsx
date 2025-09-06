@@ -5,10 +5,10 @@ import RegisterForm from '../RegisterForm';
 export default function MainContent() {
 	return (
 		<main
-			className="flex flex-col items-center justify-center flex-grow px-4 py-8 pt-18 fixed left-0 right-0
+			className="flex flex-col items-center justify-center flex-grow px-4 py-8 pt-18  left-0 right-0
   bg-gradient-to-br from-indigo-100 via-purple-100 to-pink-100 
   dark:from-gray-900 dark:via-gray-800 dark:to-gray-900 
-  transition-colors duration-300 min-h-screen">
+  transition-colors duration-300 ">
 			<div
 				className="w-full max-w-md 
     bg-white dark:bg-gray-800 
